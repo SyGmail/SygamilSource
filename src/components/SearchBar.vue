@@ -63,6 +63,16 @@ const engineList = ref([
     icon: 'https://img.icons8.com/?size=100&id=pOADWgX6vV63&format=png&color=000000'
   },
   {
+    title: 'Google',
+    baseUrl: 'https://www.google.com/search?q=',
+    icon: 'https://img.icons8.com/?size=100&id=17949&format=png&color=000000'
+  },
+  {
+    title: 'MDN',
+    baseUrl: 'https://developer.mozilla.org/zh-CN/search?q=',
+    icon: 'https://developer.mozilla.org/favicon.ico'
+  },
+  {
     title: 'ICONS',
     baseUrl: 'https://igoutu.cn/icons/set/',
     icon: 'https://img.icons8.com/?size=100&id=ayJDJ6xQKgM6&format=png&color=000000'
@@ -71,11 +81,6 @@ const engineList = ref([
     title: 'Iconify',
     baseUrl: 'https://icon-sets.iconify.design/?query=',
     icon: 'https://icon-sets.iconify.design/favicon.ico'
-  },
-  {
-    title: 'Google',
-    baseUrl: 'https://www.google.com/search?q=',
-    icon: 'https://img.icons8.com/?size=100&id=17949&format=png&color=000000'
   },
   {
     title: 'CSDN',
