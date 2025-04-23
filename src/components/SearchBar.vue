@@ -26,12 +26,15 @@
 </style>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { useUserStore } from '@/stores/user';
+import { computed, onMounted, ref } from 'vue';
+const userStore = useUserStore();
+
 const showEngine = ref(false);
 const keyword = ref('');
-let nowEngine = ref({
-  title: '谷歌',
-  baseUrl: 'https://www.google.com/search?q='
+let nowEngine = ref( {
+  title: 'Bing',
+  baseUrl: 'https://cn.bing.com/search?q='
 })
 
 const engineList = ref([
@@ -57,6 +60,10 @@ const engineList = ref([
   },
 ])
 
+onMounted(() => {
+  nowEngine.value = userStore.nowEngine;
+})
+
 // 按下搜索按钮搜索关键词
 async function onSearch(event) {
   open(nowEngine.value.baseUrl+keyword.value)
@@ -66,6 +73,12 @@ async function onSearch(event) {
 function onChangeEngine(engine) {
   nowEngine.value = engine;
   showEngine.value = false;
+  updateNowEngine();
+}
+
+// 刷新存储的nowEngine
+function updateNowEngine() {
+  userStore.nowEngine = nowEngine.value;
 }
 
 let titleList = ref(['这是Sy开发的小工具哦～', '祝你有美好的一天哦', '给这个repo点个star吧！'])
