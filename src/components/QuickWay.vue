@@ -1,5 +1,5 @@
 <template>
-  <ul class="h-fit flex justify-center w-200 flex-wrap">
+  <ul class="h-fit flex justify-center w-200 flex-wrap select-none">
     <a target="_blank" v-for="item in quickList" :key="item.id" :href="item.url">
       <li class="relative transition size-25 flex flex-col gap-2 justify-center items-center cursor-pointer hover:bg-gray-200 dark:hover:bg-[#6b6b6b] rounded p-1">
         <h1 v-if="!item.icon" class="transition flex justify-center items-center bg-sky-100 dark:bg-[#004A76] dark:text-white rounded-full p-3 size-15"><span class="text-3xl">

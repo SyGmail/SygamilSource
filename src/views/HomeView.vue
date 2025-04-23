@@ -37,7 +37,7 @@ import KnightIcon from '@/components/KnightIcon.vue';
 import SearchBar from '@/components/SearchBar.vue';
 import QuickWay from '@/components/QuickWay.vue';
 
-import { reactive, ref, watch, provide, computed } from 'vue';
+import { reactive, ref, watch, provide, computed, onMounted } from 'vue';
 const addInfo = reactive({
   title: '',
   url: '',
@@ -52,6 +52,7 @@ const disableAdd = computed(() => {
   }
   return false;
 })
+
 
 const showQuickWayModal = ref(false);
 watch(showQuickWayModal, (newVal) => {
