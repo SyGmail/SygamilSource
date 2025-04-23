@@ -11,7 +11,7 @@
 <script setup>
 import { ref } from "vue";
 
-const tipList = ref(['我是小骑士，今天你有什么想搜的呢...', '给这个Repo点个Star呗...', '点我试试...'])
+const tipList = ref(['我是小骑士，今天你有什么想搜的呢...', '给这个Repo点个Star✨呗...', '点我试试...', '👏欢迎给作者的Repo提Issue...'])
 const idx = ref(0);
 setInterval(() => {
   idx.value == tipList.value.length - 1 ? idx.value = 0 : idx.value ++;
