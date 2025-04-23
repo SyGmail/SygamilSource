@@ -1,17 +1,17 @@
 <template>
   <div class="absolute left-5 top-5 text-sm text-white flex gap-2">
-    <span @click="ifUserOpen = !ifUserOpen" class="bg-[#004A76] rounded-2xl select-none cursor-pointer px-2">书单</span>
+    <span @click="ifUserOpen = !ifUserOpen" class="bg-[#004A76] rounded-2xl select-none cursor-pointer px-2">书单/待办</span>
     <Transition enter-active-class="transition" enter-from-class="opacity-0 bg-[#004A76]/0" leave-active-class="transition" leave-to-class="opacity-0 bg-[#004A76]/0">
       <input v-if="ifUserOpen" @keydown.enter="addBook" type="text"
-        class="origin-left w-30 text-gray-300 bg-[#004A76] rounded-2xl px-2 outline-none pr-2" v-model="bookInput" placeholder="输入书名...">
+        class="origin-left w-30 text-gray-300 bg-[#004A76] rounded-2xl px-2 outline-none pr-2" v-model="bookInput" placeholder="输入内容...">
     </Transition>
     <Transition enter-active-class="transition" enter-from-class="opacity-0" leave-active-class="transition" leave-to-class="opacity-0">
       <ul v-if="ifShowList && ifUserOpen" id="bookList"
-        class="max-h-120 overflow-auto w-fit absolute top-8 min-w-42 bg-gray-100 outline outline-gray-300 shadow rounded flex flex-col text-black">
+        class="resize min-h-fit min-w-fit z-5 max-h-120 overflow-auto w-fit absolute top-8 bg-gray-100 outline outline-gray-300 shadow rounded flex flex-col text-black">
         <TransitionGroup enter-active-class="transition" enter-from-class="-translate-x-5 opacity-0" leave-active-class="transition" leave-to-class="opacity-0 -translate-x-5">
           <li v-for="book in bookList" :key="book.id"
-            class="select-none border-b py-1 border-gray-300 flex justify-between w-full px-2 last:border-none">
-            <span>{{ '《' + book.title + '》' }}</span>
+            class="select-none border-b py-1 border-gray-300 flex justify-between px-2 last:border-none">
+            <p class="flex-1 block">{{ '《' + book.title + '》' }}</p>
             <aside class="cursor-pointer">
               <!-- 已读 -->
               <svg v-if="book.read" class="text-green-600" @click="setRead(book)" xmlns="http://www.w3.org/2000/svg"
