@@ -4,12 +4,13 @@ import { ref } from 'vue';
 export const useUserStore = defineStore('user', () => {
   const light = ref(true);
   const quickList = ref([]);
+  const bookList = ref([]);
   const nowEngine = ref({
     title: 'Bing',
     baseUrl: 'https://cn.bing.com/search?q=',
     color: 'red'
   })
-  return { light, quickList, nowEngine };
+  return { light, quickList, nowEngine, bookList };
 }, {
   persist: true
 })

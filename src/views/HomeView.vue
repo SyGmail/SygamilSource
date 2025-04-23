@@ -1,6 +1,7 @@
 <template>
   <main class="w-full h-full transition pt-20 flex flex-col items-center ">
     <ThemeSwitch />
+    <TopNav />
     <KnightIcon class="transition hover:scale-90 active:scale-100" />
     <SearchBar class="mt-5 w-1/2 max-md:min-w-80 max-w-150 dark:bg-white" />
     <QuickWay class="mt-10" ref="quickWayRef" />
@@ -36,6 +37,7 @@ import ThemeSwitch from '@/components/ThemeSwitch.vue';
 import KnightIcon from '@/components/KnightIcon.vue';
 import SearchBar from '@/components/SearchBar.vue';
 import QuickWay from '@/components/QuickWay.vue';
+import TopNav from '@/components/TopNav.vue';
 
 import { reactive, ref, watch, provide, computed, onMounted } from 'vue';
 const addInfo = reactive({
