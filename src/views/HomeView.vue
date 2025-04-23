@@ -1,12 +1,12 @@
 <template>
-  <main class="transition min-w-fit pt-20 flex flex-col items-center ">
+  <main class="w-full h-full transition pt-20 flex flex-col items-center ">
     <ThemeSwitch />
     <KnightIcon class="transition hover:scale-90 active:scale-100" />
     <SearchBar class="mt-5 w-1/2 max-md:min-w-80 max-w-150 dark:bg-white" />
     <QuickWay class="mt-10" ref="quickWayRef" />
     <Teleport to="body">
       <main v-if="showQuickWayModal" class="w-screen h-screen absolute left-0 top-0">
-        <aside class="shadow-2xl w-120 h-80 bg-white gap-3 outline rounded p-3 outline-gray-100 absolute left-1/2 top-1/2 -translate-1/2 flex flex-col">
+        <aside class="max-md:w-6/7 shadow-2xl w-120 h-80 bg-white gap-3 outline rounded p-3 outline-gray-100 absolute left-1/2 top-1/2 -translate-1/2 flex flex-col">
           <p>添加快捷方式</p>
           <nav>
             <p class="text-sm">名称</p>

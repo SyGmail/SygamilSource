@@ -9,7 +9,8 @@
       </header>
       <Transition enter-active-class="transition" enter-from-class="opacity-0" leave-active-class="transition" leave-to-class="opacity-0">
         <nav v-show="showEngine">
-          <ul id="engineList" class="bg-white shadow outline outline-gray-200 rounded py-2 absolute">
+          <!-- 侧边导航栏 -->
+          <ul id="engineList" class="max-md:right-0 max-md:opacity-90 max-md:top-0 bg-white shadow outline outline-gray-200 rounded py-2 absolute">
             <nav id="engineItem" class="px-2 flex gap-3 items-center cursor-pointer" v-for="engine in engineList" :key="engine" @click="onChangeEngine(engine)">
               <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 20H8V4h2v2h2v3h2v2h2v2h-2v2h-2v3h-2z"/></svg>
               <img class="size-5" :src="engine.icon">
