@@ -50,7 +50,7 @@ onMounted(() => {
 
 const showEngine = ref(false);
 const keyword = ref('');
-let nowEngine = ref( {
+let nowEngine = ref({
   title: 'Bing',
   baseUrl: 'https://cn.bing.com/search?q=',
   color: 'red'
