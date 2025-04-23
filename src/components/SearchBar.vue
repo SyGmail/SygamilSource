@@ -35,7 +35,7 @@
 
 <script setup>
 import { useUserStore } from '@/stores/user';
-import { computed, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 const userStore = useUserStore();
 
 // 点击任意地点关闭Modal
@@ -147,6 +147,21 @@ const engineList = ref([
     title: 'WikiHow',
     baseUrl: 'https://zh.wikihow.com/wikiHowTo?search=',
     icon: 'https://zh.wikihow.com/favicon.ico'
+  },
+  {
+    title: '抖音',
+    baseUrl: 'https://www.douyin.com/root/search/',
+    icon: 'https://www.douyin.com/favicon.ico'
+  },
+  {
+    title: 'Google翻译',
+    baseUrl: 'https://translate.google.com/?hl=zh-cn&sl=en&tl=zh-CN&op=translate&text=',
+    icon: 'https://translate.google.com/favicon.ico'
+  },
+  {
+    title: '百度翻译',
+    baseUrl: 'https://fanyi.baidu.com/mtpe-individual/multimodal?query=',
+    icon: 'https://fanyi.baidu.com/favicon.ico'
   },
 ])
 
