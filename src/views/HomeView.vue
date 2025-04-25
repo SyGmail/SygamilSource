@@ -94,4 +94,13 @@ function closeQuickModal() {
 
 provide('openQuickModal', openQuickModal)
 provide('closeQuickModal', closeQuickModal)
+
+// 标题提示小工具
+let titleList = ref(['这是Sy开发的小工具哦～', '祝你有美好的一天哦', '给这个repo点个star吧！'])
+let idx = 0;
+setInterval(() => {
+  idx++;
+  idx >= titleList.value.length ? idx = 0 : idx; 
+  document.title = titleList.value[idx];
+}, 3000);
 </script>
