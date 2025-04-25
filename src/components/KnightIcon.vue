@@ -9,14 +9,25 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
-const tipList = ref(['我是小骑士，今天你有什么想搜的呢...', '给这个Repo点个Star✨呗...', '点我试试...', '👏欢迎给作者的Repo提Issue...'])
+const tipList = ref(['我是小骑士，今天你有什么想搜的呢🤔', '有空给这个Repo点个Star✨吧', '将鼠标放到最下方可以呼出Docker栏，可以切换搜索引擎的哦⬇️', '右上角可以切换主题色', '左上角可以添加你未来想看的书📖', '我是不会告诉你我是个纯粹容器的！'])
+
 const idx = ref(0);
-setInterval(() => {
-  idx.value == tipList.value.length - 1 ? idx.value = 0 : idx.value ++;
-}, 3000);
 
+onMounted(() => {
+  randomIdx()
+})
+
+const time = 3*1000;
+setInterval(() => {
+  randomIdx()
+}, time)
+
+// 随机改变idx的值
+function randomIdx() {
+  idx.value = Math.floor(Math.random()*tipList.value.length)
+}
 </script>
 
 <style scoped>

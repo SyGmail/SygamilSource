@@ -6,10 +6,10 @@
 
     <!-- ############################################################### -->
     <!-- Docker栏 -->
-    <aside class="transition select-none fixed bottom-10 left-0 w-screen flex justify-center">
+    <aside class="opacity-0 scale-80 hover:opacity-100 hover:scale-100 transition select-none fixed bottom-10 left-0 w-screen flex justify-center">
       <ul id="engineList" class="transition-all duration-500 flex dark:bg-[#3C3939] gap-2 rounded-2xl p-2 items-center justify-center dark:outline outline-2 outline-gray-400/10 dark:outline-gray-100/20 max-h-14">
-          <nav @click="onChangeEngine(engine)" ref="dockerItems" class="z-2 duration-200 flex justify-center items-center w-10 h-10 transition-all" v-for="engine in engineList" :key="engine">
-            <img :src="engine.icon" class="transition-all rounded-xl w-10 h-10 duration-200" :class="engine.bgc">
+          <nav @click="onChangeEngine(engine)" ref="dockerItems" class="z-2 duration-180 flex justify-center items-center w-10 h-10 transition-all" v-for="engine in engineList" :key="engine">
+            <img :src="engine.icon" class="transition-all rounded-xl w-10 h-10 duration-180" :class="engine.bgc">
           </nav>
       </ul>
     </aside>
