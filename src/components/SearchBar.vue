@@ -5,11 +5,12 @@
     <input @keydown.enter="onSearch" v-model="keyword" :placeholder="'使用'+nowEngine.title+'嗖嗖...'" type="text" class="select-none outline-none pl-2 flex-1 h-12">
     <aside class="select-none">
       <header>
+        <!-- 点击弹出SearchEngine选择列表 -->
         <svg id="collapseEngineList" class="hover:text-red-500 cursor-pointer" @click="showEngine=!showEngine" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M7 8H5v2h2v2h2v2h2v2h2v-2h2v-2h2v-2h2V8h-2v2h-2v2h-2v2h-2v-2H9v-2H7z"/></svg>
       </header>
       <Transition enter-active-class="transition" enter-from-class="opacity-0" leave-active-class="transition" leave-to-class="opacity-0">
           <!-- 侧边导航栏 -->
-          <ul v-show="showEngine" id="engineList" class="h-fit max-md:right-5 max-md:opacity-90 max-md:top-5 bg-white md:top-5 md:right-5 shadow outline outline-gray-200 rounded py-2 fixed">
+          <ul v-show="showEngine" id="engineList" class="h-fit max-md:right-5 max-md:opacity-90 max-md:top-5 bg-white shadow outline outline-gray-200 rounded py-2 fixed">
             <nav id="engineItem" class="px-2 flex gap-3 items-center cursor-pointer" v-for="engine in engineList" :key="engine" @click="onChangeEngine(engine)">
               <svg class="" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M10 20H8V4h2v2h2v3h2v2h2v2h-2v2h-2v3h-2z"/></svg>
               <img class="size-5" :src="engine.icon">
