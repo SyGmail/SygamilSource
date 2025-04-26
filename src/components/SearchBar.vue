@@ -9,8 +9,8 @@
     <aside class="opacity-0 scale-80 hover:opacity-100 hover:scale-100 transition select-none fixed bottom-10 left-0 w-screen flex justify-center">
       <ul id="engineList" class="transition-all duration-500 flex dark:bg-[#3C3939] gap-2 rounded-2xl p-2 items-center justify-center dark:outline outline-2 outline-gray-400/10 dark:outline-gray-100/20 max-h-14">
           <nav @click="onChangeEngine(engine)" ref="dockerItems" class="z-2 duration-180 flex justify-center items-center w-10 h-10 transition-all" v-for="engine in engineList" :key="engine">
-            <img :src="engine.icon" class="hover:active:brightness-50 transition-all rounded-xl w-10 h-10 duration-180 " :class="engine.bgc">
-            <span class="invisible absolute -top-13 bg-gray-300 rounded px-2 py-1">{{ engine.title }}</span>
+            <img :src="engine.icon" class="hover:active:brightness-50 transition-all rounded-xl w-10 h-10 duration-180 " :class="engine.style">
+            <span class="invisible font-light absolute -top-13 bg-gray-300 rounded px-2 py-1">{{ engine.title }}</span>
           </nav>
       </ul>
     </aside>
@@ -130,127 +130,127 @@ const engineList = ref([
     title: 'Bing',
     baseUrl: 'https://cn.bing.com/search?q=',
     icon: 'https://img.icons8.com/?size=100&id=pOADWgX6vV63&format=png&color=000000',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: 'Google',
     baseUrl: 'https://www.google.com/search?q=',
     icon: 'https://img.icons8.com/?size=100&id=17949&format=png&color=000000',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: 'MDN',
     baseUrl: 'https://developer.mozilla.org/zh-CN/search?q=',
-    icon: 'https://developer.mozilla.org/favicon.ico',
-    bgc: 'bg-black'
+    icon: 'https://img.icons8.com/?size=100&id=111036&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: 'ICONS',
     baseUrl: 'https://igoutu.cn/icons/set/',
     icon: 'https://img.icons8.com/?size=100&id=ayJDJ6xQKgM6&format=png&color=000000',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: 'Iconify',
     baseUrl: 'https://icon-sets.iconify.design/?query=',
     icon: 'https://icon-sets.iconify.design/favicon.ico',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: 'CSDN',
     baseUrl: 'https://so.csdn.net/so/search?q=',
-    icon: 'https://so.csdn.net/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=5fWjhaY3fUDf&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: 'Bilibili',
     baseUrl: 'https://search.bilibili.com/all?keyword=',
     icon: 'https://img.icons8.com/?size=100&id=5E24fZ9ORelo&format=png&color=000000',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: '稀土掘金',
     baseUrl: 'https://juejin.cn/search?query=',
     icon: 'https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/static/favicons/apple-touch-icon.png',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: 'StackOverFlow',
     baseUrl: 'https://stackoverflow.com/search?q=',
-    icon: 'https://stackoverflow.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=56934&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: 'Github',
     baseUrl: 'https://github.com/search?type=repositories&q=',
-    icon: 'https://github.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=48708&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: 'IconFinder',
     baseUrl: 'https://www.iconfinder.com/search?q=',
     icon: 'https://www.iconfinder.com/favicon.ico',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: 'DuckDuckGo',
     baseUrl: 'https://duckduckgo.com/?t=h_&q=',
-    icon: 'https://duckduckgo.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=Z9gtYQGWdiV1&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: 'Unsplash',
     baseUrl: 'https://unsplash.com/s/photos/',
-    icon: 'https://unsplash.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=e4ush6qx3Z1D&format=png&color=000000',
+    style: 'outline-1 outline-white bg-white'
   },
   {
     title: 'Pexels',
     baseUrl: 'https://www.pexels.com/zh-cn/search/',
-    icon: 'https://www.pexels.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=748&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: '开发者搜索',
     baseUrl: 'https://kaifa.baidu.com/searchPage?wd=',
     icon: 'https://baidu.com/favicon.ico',
-    bgc: 'bg-white'
+    style: 'bg-white'
   },
   {
     title: '知乎',
     baseUrl: 'https://www.zhihu.com/search?type=content&q=',
-    icon: 'https://www.zhihu.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=DVtS4lF5-eqh&format=png&color=000000',
+    style: 'bg-white'
   },
   {
     title: 'SimilarSiteSearch',
     baseUrl: 'https://www.similarsitesearch.com/search/?q=',
-    icon: 'https://www.similarsitesearch.com/favicon.ico',
-    bgc: 'bg-[#0076C6]'
+    icon: 'https://img.icons8.com/?size=100&id=119854&format=png&color=000000',
+    style: 'bg-[#0076C6]'
   },
   {
     title: 'WikiHow',
     baseUrl: 'https://zh.wikihow.com/wikiHowTo?search=',
     icon: 'https://zh.wikihow.com/favicon.ico',
-    bgc: 'bg-[#92B874]'
+    style: 'bg-[#92B874]'
   },
   {
     title: '抖音',
     baseUrl: 'https://www.douyin.com/root/search/',
-    icon: 'https://www.douyin.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=71197&format=png&color=000000',
+    style: 'bg-white'
   },
   {
-    title: 'Google翻译',
+    title: 'Google翻译（英翻中）',
     baseUrl: 'https://translate.google.com/?hl=zh-cn&sl=en&tl=zh-CN&op=translate&text=',
-    icon: 'https://translate.google.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=13647&format=png&color=000000',
+    style: 'bg-white'
   },
   {
-    title: '百度翻译',
+    title: '百度翻译（英翻中）',
     baseUrl: 'https://fanyi.baidu.com/mtpe-individual/multimodal?query=',
-    icon: 'https://fanyi.baidu.com/favicon.ico',
-    bgc: 'bg-white'
+    icon: 'https://img.icons8.com/?size=100&id=13495&format=png&color=000000',
+    style: 'bg-white'
   },
 ])
 
