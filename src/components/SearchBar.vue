@@ -125,6 +125,12 @@ const engineList = ref([
     style: 'bg-white'
   },
   {
+    title: 'Youtube',
+    baseUrl: 'https://www.youtube.com/results?search_query=',
+    icon: 'https://img.icons8.com/?size=100&id=19318&format=png&color=000000',
+    style: 'bg-white'
+  },
+  {
     title: 'ICONS',
     baseUrl: 'https://igoutu.cn/icons/set/',
     icon: 'https://img.icons8.com/?size=100&id=ayJDJ6xQKgM6&format=png&color=000000',
