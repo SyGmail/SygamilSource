@@ -1,8 +1,10 @@
 <!-- 搜索小组件 -->
 <template>
   <div class="flex rounded-3xl shadow shadow-gray-300 items-center px-2 relative">
-    <svg class="cursor-pointer" @click="onSearch" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2h8v2H6zM4 6V4h2v2zm0 8H2V6h2zm2 2H4v-2h2zm8 0v2H6v-2zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2zm0-8h2v8h-2zm0 0V4h-2v2z"/></svg>
-    <input ref="inputDoc" @keydown.enter="onSearch" v-model="keyword" :placeholder="searchHolder" type="text" class="select-none outline-none pl-2 pr-10 flex-1 h-12">
+    <svg class="cursor-pointer" @click="onSearch" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M6 2h8v2H6zM4 6V4h2v2zm0 8H2V6h2zm2 2H4v-2h2zm8 0v2H6v-2zm2-2h-2v2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2zm0-8h2v8h-2zm0 0V4h-2v2z"/>
+    </svg>
+    <input ref="inputDoc" @keydown.enter.exact="onSearch" v-model="keyword" :placeholder="searchHolder" type="text" class="select-none outline-none pl-2 pr-10 flex-1 h-12">
 
     <img :src="nowEngine.icon" class="size-10 absolute select-none right-2 rounded-full">
     <!-- ############################################################### -->
@@ -10,7 +12,7 @@
     <aside class="select-none fixed bottom-10 left-0 w-screen flex justify-center">
       <ul ref="ulRef" id="engineList" class="opacity-0 hover:opacity-100 transition flex dark:bg-[#3C3939] rounded-2xl p-2 items-center justify-center dark:outline outline-2 outline-gray-400/10 dark:outline-gray-100/20 max-h-13">
           <nav @click="onChangeEngine(engine)" ref="dockerItems" class="relative z-2 p-1 flex justify-center items-center" v-for="engine in engineList" :key="engine">
-            <img :src="engine.icon" class="hover:active:brightness-50 rounded-xl w-full h-full" :class="engine.style">
+            <img :src="engine.icon" class="hover:active:brightness-50 hover:rotate-30 transition rounded-xl w-full h-full" :class="engine.style">
             <div class="invisible font-light absolute -top-13 w-80 flex justify-center">
               <span class="bg-gray-300 rounded px-2 py-1">{{ engine.title }}</span>
             </div>
@@ -39,6 +41,11 @@ nav {
 
 img:hover + div {
   visibility: visible;
+}
+
+/* +为直接下一个兄弟 ～为所有接下来的兄弟 空格为所有后代 >为邻近后代 */
+#superIcon:hover + #superTitle {
+  display: inline-block;
 }
 </style>
 
@@ -96,9 +103,10 @@ const searchHolder = ref('想搜点什么?')
 
 // 用户输入的搜索词
 const keyword = ref('');
+const compositionFlag = ref(false); // 输入法是否开启
 
 // 现在使用的API
-let nowEngine = ref({
+const nowEngine = ref({
   title: 'Bing',
   baseUrl: 'https://cn.bing.com/search?q=',
   color: 'red'
@@ -243,11 +251,32 @@ const engineList = ref([
 // 挂载时加载用户上一次选择的引擎
 onMounted(() => {
   nowEngine.value = userStore.nowEngine;
+
+  // composition用于检测输入法的开启，用于解决输入法enter键和mac enter冲突导致输入法输入英文直接跳转的问题
+  inputDoc.value.addEventListener('compositionstart', () => {
+    compositionFlag.value = true;
+  })
+  
+  inputDoc.value.addEventListener('compositionend', () => {
+    compositionFlag.value = false;
+  })
 })
+
+function sleep(duration) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, duration)
+  });
+}
 
 // 按下搜索按钮搜索关键词
 async function onSearch() {
-  open(nowEngine.value.baseUrl+keyword.value)
+  // await for 1ms.
+  if (!compositionFlag.value) {
+    // 如果输入法没有开启
+    open(nowEngine.value.baseUrl+keyword.value)
+  }
 }
 
 // 切换搜索引擎
